@@ -1,7 +1,7 @@
 //File: controllers/tvshows.js
 
 
-//GET - Return all tvshows in the DB
+//GET - Return all alumnos in the DB
 exports.findAllAlumnos = function(req, res) {
   console.log('GET /alumnos');
   res.locals.connection.query('query', function (error, results, fields) {
@@ -9,7 +9,7 @@ exports.findAllAlumnos = function(req, res) {
     });
 };
 
-//GET - Return alumno  with specified ID
+//GET - Return alumno with specified ID
 exports.findById = function(req, res) {
     var userId = req.params.id;
     console.log('GET /alumnos/' + req.params.id);
@@ -18,7 +18,7 @@ exports.findById = function(req, res) {
     });
 };
 
-//POST - Insert a new TVShow in the DB
+//POST - Insert a new alumno in the DB
 exports.addAlumno = function(req, res) {
 	console.log('POST');
 	console.log(req.body);
@@ -32,7 +32,7 @@ exports.updateTVShow = function(req, res) {
 
 };
 
-//DELETE - Delete a TVShow with specified ID
+//DELETE - Delete a alumno with specified ID
 exports.deleteTVShow = function(req, res) {
 
 };
