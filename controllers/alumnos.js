@@ -6,10 +6,10 @@ exports.findAllAlumnos = function(req, res) {
   res.locals.connection.query('SELECT * FROM alumno', function (error, results, fields) {
     console.log(error);
       if(error){
-        res.send(JSON.stringify({"status": 500, "error": error, "response": null}));
+        res.json({"status": 500, "error": error, "response": null});
         //If there is error, we send the error in the error section with 500 status
       } else {
-        res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+        res.json({"status": 200, "error": null, "response": results});
         //If there is no error, all is good and response is 200OK.
       }
     });
@@ -25,7 +25,7 @@ exports.findById = function(req, res) {
           res.send(JSON.stringify({"status": 500, "error": error, "response": null}));
           //If there is error, we send the error in the error section with 500 status
         } else {
-          res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+          res.json({"status": 200, "error": null, "response": results});
           //If there is no error, all is good and response is 200OK.
         }
       });
@@ -41,7 +41,7 @@ exports.addAlumno = function(req, res) {
     res.locals.connection.query(sql,[values], function (err, result) {
       if (err) throw err;
       console.log("1 record inserted");
-      res.send(JSON.stringify({"status": 200, "error": null,"message:": "1 registro insertado correctamente", "response": values}));
+      res.json({"status": 200, "error": null,"message:": "1 registro insertado correctamente", "response": values});
     });
 
 };
