@@ -4,7 +4,7 @@
 //GET - Return all alumnos in the DB
 exports.findAllAlumnos = function(req, res) {
   console.log('GET /alumnos');
-  res.locals.connection.query('query', function (error, results, fields) {
+  res.locals.connection.query('', function (error, results, fields) {
 
     });
 };
@@ -13,7 +13,7 @@ exports.findAllAlumnos = function(req, res) {
 exports.findById = function(req, res) {
     var userId = req.params.id;
     console.log('GET /alumnos/' + req.params.id);
-    res.locals.connection.query('query' , function (error, results, fields) {
+    res.locals.connection.query('' , function (error, results, fields) {
 
     });
 };
