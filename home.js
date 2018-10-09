@@ -1,3 +1,4 @@
+//declarando variables
 var mysql = require("mysql");
 var express         = require("express"),
     app             = express(),
@@ -8,31 +9,32 @@ app.use(bodyParser.json());
 var router = express.Router();
 
 //Database connection
-
 app.use((req, res, next) => {
 	res.locals.connection = mysql.createConnection({
-		host     : 'localhost',
-		user     : 'root',
+		host     : '',
+		user     : '',
 		password : '',
-		database : 'laravelclase'
+		database : ''
 	});
 	res.locals.connection.connect();
 	next();
   console.log("connected to the database");
 });
 
-
+//ruta de alumnos
 var alumnos = express.Router();
+
+//controller de alumnos
 var AlumnosCtrl = require('./controllers/alumnos');
 
-alumnos.route('/alumnos')
-  .get(AlumnosCtrl.findAllAlumnos)
-  .post(AlumnosCtrl.addAlumno);
+  alumnos.route('/alumnos')
+    .get()
+    .post();
 
   alumnos.route('/alumnos/:id')
-    .get(AlumnosCtrl.findById)
-    .put(AlumnosCtrl.updateTVShow)
-    .delete(AlumnosCtrl.deleteTVShow);
+    .get()
+    .put()
+    .delete();
 
 
 
