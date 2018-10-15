@@ -1,14 +1,17 @@
-//declarando variables
+//declarando variables , equivalente a los import en java
 var mysql = require("mysql");
 var express         = require("express"),
     app             = express(),
     bodyParser      = require("body-parser");
-    app.use(bodyParser.urlencoded({ extended: false }));
+
+//Con bodyParser permitimos que pueda parsear JSON
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 var router = express.Router();
 
 //Database connection
+//app.use(middleware) is called every time a request is sent to the server.
 app.use((req, res, next) => {
 	res.locals.connection = mysql.createConnection({
 		host     : '',
@@ -23,7 +26,6 @@ app.use((req, res, next) => {
 
 //ruta de alumnos
 var alumnos = express.Router();
-
 //controller de alumnos
 var AlumnosCtrl = require('./controllers/alumnos');
 
@@ -40,6 +42,7 @@ var AlumnosCtrl = require('./controllers/alumnos');
 
 app.use('/api', alumnos);
 
+//hacer que la app escuche cierto puerto, en este caso el 3000
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
