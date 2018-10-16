@@ -8,7 +8,6 @@ var express         = require("express"),
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var router = express.Router();
 
 //Database connection
 //app.use(middleware) is called every time a request is sent to the server.
