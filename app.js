@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 
 //ruta de alumnos
 var alumnos = express.Router();
-//controller de alumnos
+//exportando módulo, controller de alumnos
 var AlumnosCtrl = require('./controllers/alumnos');
 
   alumnos.route('/alumnos')

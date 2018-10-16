@@ -14,6 +14,12 @@ exports.findAllAlumnos = function(req, res) {
 exports.findById = function(req, res) {
     var userId = req.params.id;
     console.log('GET /alumnos/' + req.params.id);
+    //validaciones
+    if(isNaN(userId)){
+      res.json({"error:": "ID no válido", "message:": "Favor de verificar de que sea un ID válido"});
+      return;
+    }
+    /* Completa el codigo*/
     var sql = "";
     res.locals.connection.query( sql , function (error, results, fields) {
 
@@ -52,6 +58,7 @@ exports.updateAlumno = function(req, res) {
     return;
   }
   //si no hay errores, intentar actualizar registro
+  /* Completa el codigo*/
   var sql = "";
   res.locals.connection.query(sql,[/*Parametros de consulta */], function (err, result) {
 
@@ -68,6 +75,7 @@ exports.deleteAlumno = function(req, res) {
     return;
   }
   //si no hay errores, intentar eliminar el registro
+  /* Completa el codigo*/
   var sql = "";
   res.locals.connection.query(sql,[/*Parametros de consulta */], function (err, result) {
 
