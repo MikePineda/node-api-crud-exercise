@@ -6,7 +6,12 @@ var express         = require("express"),
 
 //Con bodyParser permitimos que pueda parsear JSON
 app.use(bodyParser.urlencoded({ extended: false }));
+var cors = require('cors')
+
 app.use(bodyParser.json());
+app.use(cors())
+
+var router = express.Router();
 
 
 //Database connection
@@ -22,6 +27,10 @@ app.use((req, res, next) => {
 	next();
   console.log("connected to the database");
 });
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/views/index.html')
+})
 
 //ruta de alumnos
 var alumnos = express.Router();
